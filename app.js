@@ -37,17 +37,20 @@ function shuffle(arr) {
 function $(sel) { return document.querySelector(sel); }
 function $$(sel) { return document.querySelectorAll(sel); }
 
-$$(".nav-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    state.view = btn.dataset.view;
-    $$(".nav-btn").forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-    render();
+function bindNav() {
+  document.querySelectorAll(".nav-btn").forEach(btn => {
+    btn.onclick = () => {
+      state.view = btn.dataset.view;
+      document.querySelectorAll(".nav-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      render();
+    };
   });
-});
+}
 
 function render() {
   const app = $("#app");
+  if (!app) return;
   if (state.view === "dashboard") app.innerHTML = renderDashboard();
   else if (state.view === "practice") app.innerHTML = renderPractice();
   else if (state.view === "exam") app.innerHTML = renderExam();
@@ -603,4 +606,5 @@ function escapeHtml(s) {
     .replace(/"/g, """);
 }
 
+bindNav();
 render();
