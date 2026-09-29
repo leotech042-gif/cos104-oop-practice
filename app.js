@@ -110,7 +110,7 @@ function renderDashboard() {
     </div>
     <div class="card section">
       <h2>Quick Start</h2>
-      <p class="muted" style="margin-bottom:0.75rem">Practice any difficulty or jump into a timed exam. Answers include step-by-step breakdowns. Sessions are 10–60 questions, always shuffled.</p>
+      <p class="muted" style="margin-bottom:0.75rem">Practice any difficulty or jump into a timed exam. Answers include step-by-step breakdowns. Sessions are 10-60 questions, always shuffled.</p>
       <div class="actions">
         <button class="btn btn-primary" data-go="practice">Start Practice</button>
         <button class="btn btn-ghost" data-go="exam">Take Exam</button>
@@ -160,7 +160,7 @@ function renderPractice() {
     return `
     <div class="section">
       <h1>Practice</h1>
-      <p class="muted">Pick filters, choose 10–60 questions, then start a shuffled session. Each answer shows a full breakdown.</p>
+      <p class="muted">Pick filters, choose 10-60 questions, then start a shuffled session. Each answer shows a full breakdown.</p>
     </div>
     <div class="card">
       <h2>Session setup</h2>
@@ -250,7 +250,7 @@ function renderExam() {
     return `
       <div class="section">
         <h1>Exam Mode</h1>
-        <p class="muted">Timed set of mixed questions (10–60). Results saved to Performance. Always shuffled.</p>
+        <p class="muted">Timed set of mixed questions (10-60). Results saved to Performance. Always shuffled.</p>
       </div>
       <div class="card">
         <h2>Configure</h2>
@@ -449,7 +449,7 @@ function renderPerformance() {
   return `
     <div class="section">
       <h1>Performance</h1>
-      <p class="muted">Local history of practice & exams. Clear data resets everything.</p>
+      <p class="muted">Local history of practice and exams. Clear data resets everything.</p>
     </div>
     <div class="grid-2 section">
       <div class="card">
@@ -599,11 +599,8 @@ function bindEvents() {
 }
 
 function escapeHtml(s) {
-  return String(s)
-    .replace(/&/g, "&")
-    .replace(/</g, "<")
-    .replace(/>/g, ">")
-    .replace(/"/g, """);
+  const map = { "&": "&" + "amp;", "<": "&" + "lt;", ">": "&" + "gt;", '"': "&" + "quot;" };
+  return String(s).replace(/[&<>"]/g, ch => map[ch]);
 }
 
 bindNav();
