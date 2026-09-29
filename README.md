@@ -2,23 +2,29 @@
 
 Mini exam & practice site for **COS 104 Computing Practice**.
 
+**Live repo:** https://github.com/leotech042-gif/cos104-oop-practice
+
 ## Features
 
-- **Dashboard** – progress overview, syllabus snapshot  
-- **Practice** – filter by difficulty (Easy / Medium / Hard / Very Hard) and topic; instant answer + step-by-step breakdown  
-- **Exam** – timed mixed sets, results saved locally  
-- **Performance** – accuracy by difficulty & topic, recent exam history  
+- **Dashboard** – progress, accuracy, syllabus snapshot  
+- **Practice** – choose **10–60** questions (clamped to bank size), filters by difficulty/topic, **always shuffled**, answer + full breakdown  
+- **Exam** – timed sets of **10–60** questions, shuffled, results saved  
+- **Performance** – accuracy by difficulty & topic, recent sessions (localStorage)
 
-Questions are derived from the course PDF (classes, encapsulation, abstraction, inheritance, polymorphism, reference types, function overloading, copy constructor, templates, virtual functions, virtual base classes / diamond problem, exception handling) plus external interview/quiz material.
+## Question bank
+
+Mixed **Easy / Medium / Hard / Very Hard** covering:
+
+Classes, Encapsulation, Abstraction, Inheritance, Polymorphism, Reference types, Function overloading, Copy constructor, Templates, Virtual functions, Virtual base classes (Diamond problem), Smart pointers, Exception handling / RAII.
 
 ## Deploy to Vercel
 
-1. Push this folder to a GitHub repo  
-2. Import the repo in [vercel.com](https://vercel.com)  
-3. Framework preset: **Other** (static)  
-4. Deploy – root directory is this folder  
+1. Go to [vercel.com](https://vercel.com) → **Add New Project**  
+2. Import **leotech042-gif/cos104-oop-practice**  
+3. Framework preset: **Other** (static HTML)  
+4. Deploy — root is the repo root  
 
-Or from CLI:
+Or:
 
 ```bash
 npx vercel
@@ -26,10 +32,10 @@ npx vercel
 
 ## Local
 
-Just open `index.html` in a browser, or:
+Open `index.html` in a browser, or:
 
 ```bash
 npx serve .
 ```
 
-Progress is stored in `localStorage` (key `cos104_progress_v1`).
+Progress is stored in `localStorage` under `cos104_progress_v1`.
